@@ -356,6 +356,10 @@ int main(void)
 	void * test;									//Pointer for demonstration data allocation calls
 	int i,j,k;										//Helper variables for loops
 	void * memLocations[16];						//A void * array which will hold pointers to the memory locations that have been allocated
+	for(i = 0; i<16; i++)
+	{
+		memLocations[i]=NULL;
+	}
 	i = 1;											//Initialize i to an arbitrary positive value
 	void * tempLocation;							//Helper pointer
 	//Demonstration of the class is done through an interactive terminal interface
@@ -413,7 +417,7 @@ int main(void)
 					break;//Ask for more user input
 				}
 				cin >> j;	//Get index to deallocate
-				while(j > 15 || !memLocations[j] || j < 1)//Ask for new input until a valid index is chosen
+				while(j > 15 || !memLocations[j] || j < 0)//Ask for new input until a valid index is chosen
 				{
 					cout << "Invalid value.  Please enter a valid value: ";
 					cin >> j;
